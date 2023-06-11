@@ -3,18 +3,18 @@ import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:matabunda/login/controller_login.dart';
 import 'package:matabunda/register/view_register.dart';
-import 'package:matabunda/reset/reset.dart';
+import 'package:matabunda/reset/controller_reset.dart';
 // ignore: depend_on_referenced_packages
 // import 'package:flutter_svg/flutter_svg.dart';
 
-class Login extends StatefulWidget {
-  const Login({super.key});
+class Reset extends StatefulWidget {
+  const Reset({super.key});
 
   @override
-  State<Login> createState() => _LoginState();
+  State<Reset> createState() => _ResetState();
 }
 
-class _LoginState extends State<Login> {
+class _ResetState extends State<Reset> {
   late String? email, password;
 
   final _formState = GlobalKey<FormState>();
@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
                   ),
                   SizedBox(height: 30),
                   Text(
-                    'Akses Login',
+                    'Reset Password',
                     style: TextStyle(
                       fontSize: 22,
                       fontWeight: FontWeight.bold,
@@ -96,52 +96,12 @@ class _LoginState extends State<Login> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                    child: Container(
-                      padding: const EdgeInsets.all(7),
-                      decoration: BoxDecoration(
-                        color: Color.fromARGB(255, 241, 241, 243),
-                        border: Border.all(color: Colors.white),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Padding(
-                        padding: EdgeInsets.only(left: 20.0),
-                        child: Column(
-                          children: [
-                            TextFormField(
-                              textInputAction: TextInputAction.done,
-                              obscureText: true,
-                              onChanged: (value) {
-                                setState(() {
-                                  password = value;
-                                });
-                              },
-                              validator: ((value) {
-                                if (value == '') {
-                                  return "Isi terlebih dahulu!";
-                                }
-                              }),
-                              decoration: InputDecoration(
-                                icon: new Icon(Icons.key),
-                                border: InputBorder.none,
-                                hintText: 'Password..',
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
                   SizedBox(height: 30),
                   InkWell(
                     onTap: () async {
                       if (_formState.currentState!.validate()) {
                         print("email : " + email!);
-                        print("password : " + password!);
-                        await Controller_Login.flutter_login(
-                            email, password, context);
+                        await Reset_pw.send_reset(email, context);
                       } else {
                         print("Validation Error");
                       }
@@ -153,9 +113,9 @@ class _LoginState extends State<Login> {
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          SizedBox(width: 140),
+                          SizedBox(width: 100),
                           Text(
-                            "Masuk",
+                            "Kirim Link Reset",
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
@@ -170,51 +130,35 @@ class _LoginState extends State<Login> {
                           borderRadius: BorderRadius.circular(15)),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SizedBox(height: 20),
-                      Text(
-                        'Jika belum punya akun?',
-                        style: TextStyle(fontSize: 15, color: Colors.black54),
-                      ),
-                      SizedBox(
-                        width: 10,
-                        height: 5,
-                      ),
-                      GestureDetector(
-                        child: Text(
-                          'Klik Register',
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 192, 0, 29),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        ),
-                        onTap: () {
-                          Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                  builder: (context) => RegisterView()));
-                        },
-                      ),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      GestureDetector(
-                        child: Text(
-                          'Klik Reset Password',
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 192, 0, 29),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        ),
-                        onTap: () {
-                          Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(builder: (context) => Reset()));
-                        },
-                      ),
-                    ],
-                  ),
+                  // SizedBox(height: 20),
+                  // Column(
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     SizedBox(height: 20),
+                  //     Text(
+                  //       'Jika belum punya akun?',
+                  //       style: TextStyle(fontSize: 15, color: Colors.black54),
+                  //     ),
+                  //     SizedBox(
+                  //       width: 10,
+                  //       height: 5,
+                  //     ),
+                  //     GestureDetector(
+                  //       child: Text(
+                  //         'Klik Register',
+                  //         style: TextStyle(
+                  //             color: Color.fromARGB(255, 192, 0, 29),
+                  //             fontWeight: FontWeight.bold,
+                  //             fontSize: 15),
+                  //       ),
+                  //       onTap: () {
+                  //         Navigator.of(context).pushReplacement(
+                  //             MaterialPageRoute(
+                  //                 builder: (context) => RegisterView()));
+                  //       },
+                  //     ),
+                  //   ],
+                  // ),
                 ]),
               )
             ],

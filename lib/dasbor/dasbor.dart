@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matabunda/dasbor/history_user/view_user.dart';
 import 'package:matabunda/ip/ip.dart';
 import 'package:matabunda/login/view_login.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
@@ -13,7 +14,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   final List<Widget> _pages = [
     HomeScreen(),
-    ExploreScreen(),
+    DataUserBaru(),
+    StreamLive(),
     FavoritesScreen(),
     ProfileScreen(),
   ];
@@ -21,12 +23,6 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Mata Bunda'),
-        toolbarHeight: 65,
-        centerTitle: true,
-        backgroundColor: Colors.blueAccent,
-      ),
       body: _pages[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,
@@ -51,6 +47,14 @@ class _MyHomePageState extends State<MyHomePage> {
               size: 30,
             ),
             label: 'History',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              Icons.stream_outlined,
+              color: Colors.black,
+              size: 30,
+            ),
+            label: 'Stream live',
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -80,34 +84,69 @@ class _MyHomePageState extends State<MyHomePage> {
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Dashboard',
-        style: TextStyle(fontSize: 24),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Dashboard'),
+        toolbarHeight: 65,
+        centerTitle: true,
+        backgroundColor: Colors.blueAccent,
       ),
+      // child: Text(
+      //   'Dashboard',
+      //   style: TextStyle(fontSize: 24),
+      // ),
     );
   }
 }
 
 // -------------------- History User ------------------ //
-class ExploreScreen extends StatelessWidget {
-  late InAppWebViewController webviewController;
+// class ExploreScreen extends StatelessWidget {
+//   late InAppWebViewController webviewController;
 
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: Text('History User'),
+//         toolbarHeight: 65,
+//         centerTitle: true,
+//         backgroundColor: Colors.blueAccent,
+//       ),
+//       // body: InAppWebView(
+//       //   initialUrlRequest: URLRequest(
+//       //     url: Uri.parse(ip + 'history-users'),
+//       //   ),
+//       //   initialOptions: InAppWebViewGroupOptions(
+//       //     crossPlatform: InAppWebViewOptions(
+//       //       javaScriptEnabled: true,
+//       //     ),
+//       //   ),
+//       //   onWebViewCreated: (controller) {
+//       //     webviewController = controller;
+//       //   },
+//       // ),
+//       body: Container(
+//         child: Column(
+//           children: [
+//             SizedBox(
+//               height: 30,
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+class StreamLive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: InAppWebView(
-        initialUrlRequest: URLRequest(
-          url: Uri.parse(ip + 'history-users'),
-        ),
-        initialOptions: InAppWebViewGroupOptions(
-          crossPlatform: InAppWebViewOptions(
-            javaScriptEnabled: true,
-          ),
-        ),
-        onWebViewCreated: (controller) {
-          webviewController = controller;
-        },
+      appBar: AppBar(
+        title: Text('History Live'),
+        toolbarHeight: 65,
+        centerTitle: true,
+        backgroundColor: Colors.blueAccent,
       ),
     );
   }
@@ -116,10 +155,12 @@ class ExploreScreen extends StatelessWidget {
 class FavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text(
-        'Favorites Screen',
-        style: TextStyle(fontSize: 24),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Grafik'),
+        toolbarHeight: 65,
+        centerTitle: true,
+        backgroundColor: Colors.blueAccent,
       ),
     );
   }
@@ -133,6 +174,12 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Profil'),
+        toolbarHeight: 65,
+        centerTitle: true,
+        backgroundColor: Colors.blueAccent,
+      ),
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
         child: SingleChildScrollView(
