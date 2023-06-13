@@ -9,6 +9,7 @@ environment:
   sdk: ">=2.18.2 <3.0.0"
 
 dependencies:
+  camera: ^0.10.5+2
   cupertino_icons: ^1.0.2
   email_auth: ^1.0.0
   email_otp: ^2.0.1

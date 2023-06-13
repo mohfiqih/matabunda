@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:matabunda/dasbor/dasbor.dart';
 import 'package:matabunda/dasbor/history_user/model_user.dart';
 import 'package:matabunda/dasbor/history_user/service_user.dart';
 
@@ -75,14 +76,19 @@ class _DataUserBaruState extends State<DataUserBaru> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(
-          child: Text(
-            'Data Users',
-            style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),
-          ),
-        ),
+        title: Text('History User'),
         backgroundColor: Colors.blue,
         toolbarHeight: 60,
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => DashboardApp(),
+              ),
+            ); // Kembali ke menu sebelumnya
+          },
+        ),
       ),
       body: FutureBuilder<List<User>>(
         future: UserApi().getAllUser(page: currentPage, pageSize: pageSize),
