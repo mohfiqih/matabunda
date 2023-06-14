@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:matabunda/login/controller_login.dart';
+import 'package:matabunda/login/view_login.dart';
 import 'package:matabunda/register/view_register.dart';
 import 'package:matabunda/reset/controller_reset.dart';
 // ignore: depend_on_referenced_packages
@@ -22,6 +23,19 @@ class _ResetState extends State<Reset> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Halaman Reset'),
+        toolbarHeight: 65,
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 192, 0, 29),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => Login()));
+          },
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Container(
         margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
@@ -49,15 +63,7 @@ class _ResetState extends State<Reset> {
                       const Spacer(),
                     ],
                   ),
-                  SizedBox(height: 30),
-                  Text(
-                    'Reset Password',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 50),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10.0),
                     child: Container(

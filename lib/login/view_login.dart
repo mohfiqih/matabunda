@@ -22,9 +22,21 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Halaman Login'),
+        toolbarHeight: 65,
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 192, 0, 29),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pop();
+          },
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -48,14 +60,6 @@ class _LoginState extends State<Login> {
                       ),
                       const Spacer(),
                     ],
-                  ),
-                  SizedBox(height: 30),
-                  Text(
-                    'Akses Login',
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                    ),
                   ),
                   SizedBox(height: 40),
                   Padding(
@@ -147,58 +151,73 @@ class _LoginState extends State<Login> {
                       }
                     },
                     child: Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          SizedBox(width: 140),
-                          Text(
-                            "Masuk",
-                            style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white,
-                                fontSize: 20),
-                          ),
-                        ],
-                      ),
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
                       height: 60,
                       width: double.infinity,
                       decoration: BoxDecoration(
-                          color: Color.fromARGB(255, 192, 0, 29),
-                          borderRadius: BorderRadius.circular(15)),
+                        color: Color.fromARGB(255, 192, 0, 29),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Center(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "Masuk",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  InkWell(
+                    onTap: () async {
+                      Navigator.of(context).pushReplacement(MaterialPageRoute(
+                          builder: (context) => RegisterView()));
+                    },
+                    child: Container(
+                      margin: const EdgeInsets.symmetric(horizontal: 10),
+                      height: 60,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(255, 192, 0, 29),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Center(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              Text(
+                                "Register",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                   SizedBox(height: 20),
                   Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SizedBox(height: 20),
-                      Text(
-                        'Jika belum punya akun?',
-                        style: TextStyle(fontSize: 15, color: Colors.black54),
-                      ),
                       SizedBox(
-                        width: 10,
-                        height: 5,
-                      ),
-                      GestureDetector(
-                        child: Text(
-                          'Klik Register',
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 192, 0, 29),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 15),
-                        ),
-                        onTap: () {
-                          Navigator.of(context).pushReplacement(
-                              MaterialPageRoute(
-                                  builder: (context) => RegisterView()));
-                        },
-                      ),
-                      SizedBox(
-                        height: 20,
+                        height: 10,
                       ),
                       GestureDetector(
                         child: Text(

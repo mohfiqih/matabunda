@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 import 'package:matabunda/dasbor/dasbor.dart';
 import 'package:matabunda/live/live.dart';
+import 'package:matabunda/login/view_login.dart';
 import 'package:matabunda/splash/splash.dart';
 
 void main() {

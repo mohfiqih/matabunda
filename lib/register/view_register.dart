@@ -28,9 +28,22 @@ class _RegisterViewState extends State<RegisterView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Halaman Register'),
+        toolbarHeight: 65,
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 192, 0, 29),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pushReplacement(
+                MaterialPageRoute(builder: (context) => Login()));
+          },
+        ),
+      ),
       backgroundColor: Colors.white,
       body: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+        margin: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -58,25 +71,6 @@ class _RegisterViewState extends State<RegisterView> {
                         ),
                         const Spacer(),
                       ],
-                    ),
-                    SizedBox(height: 30),
-                    Text(
-                      'Daftar Akun',
-                      style: TextStyle(
-                        fontSize: 22,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    Text(
-                      "Registrasi akun terlebih dahulu!",
-                      style: TextStyle(
-                        fontSize: 14,
-                        color: Colors.black38,
-                      ),
-                      textAlign: TextAlign.center,
                     ),
                     SizedBox(height: 30),
                     Padding(
@@ -273,28 +267,6 @@ class _RegisterViewState extends State<RegisterView> {
                             color: Color.fromARGB(255, 192, 0, 29),
                             borderRadius: BorderRadius.circular(15)),
                       ),
-                    ),
-                    SizedBox(height: 20),
-                    Text(
-                      'Sudah punya akun?',
-                      style: TextStyle(fontSize: 15, color: Colors.black54),
-                    ),
-                    SizedBox(
-                      width: 10,
-                      height: 5,
-                    ),
-                    GestureDetector(
-                      child: Text(
-                        'Klik Login',
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 192, 0, 29),
-                            fontWeight: FontWeight.bold,
-                            fontSize: 15),
-                      ),
-                      onTap: () {
-                        Navigator.of(context).pushReplacement(
-                            MaterialPageRoute(builder: (context) => Login()));
-                      },
                     ),
                   ],
                 ),

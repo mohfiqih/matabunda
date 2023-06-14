@@ -77,8 +77,9 @@ class _DataUserBaruState extends State<DataUserBaru> {
     return Scaffold(
       appBar: AppBar(
         title: Text('History User'),
-        backgroundColor: Colors.blue,
-        toolbarHeight: 60,
+        toolbarHeight: 65,
+        centerTitle: true,
+        backgroundColor: Color.fromARGB(255, 192, 0, 29),
         leading: IconButton(
           icon: Icon(Icons.arrow_back),
           onPressed: () {
@@ -86,7 +87,7 @@ class _DataUserBaruState extends State<DataUserBaru> {
               MaterialPageRoute(
                 builder: (context) => DashboardApp(),
               ),
-            ); // Kembali ke menu sebelumnya
+            );
           },
         ),
       ),
